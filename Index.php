@@ -9,9 +9,22 @@
     </head>
     <body>
         
-
-        <a class="btn-floating btn-large pulse"><i class="material-icons">cloud</i></a>
+        <div class="container">
+            <div class="center-align">
+                <video controls id="myvideo">
+                    <source src="hola.mp4"></source>
+                    <source src="hola.mp4"></source>
+                </video>
+                <a class="btn-floating btn-large pulse"><i class="material-icons">cloud</i></a>
+                <?php echo '<p>Presione con el mouse</p>'; ?>
+            </div>
+        <div>
         <script type="text/javascript" src="js/materialize.min.js"></script>
-        <?php echo '<p>Presione con el mouse</p>'; ?>
+        <script type="text/javascript" src="Controlador/JavaScript/animacion.js">
+        var elem = document.getElementById("myvideo");
+        if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+}
+</script>
     </body>
     </html>
