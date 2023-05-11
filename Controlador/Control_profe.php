@@ -9,8 +9,11 @@
          */
          
         public function crear_profesor($rut_profesor,$nombre_profesor,$apellido_profesor,$estado_profesor){
+            $con = conectarBD();
+            $query="INSERT INTO profesor(rut_profesor,nombre_profesor,apellido_profesor,estado_profesor) VALUES('$rut_profesor','$nombre_profesor','$apellido_profesor','$estado_profesor')";
+            $sql=mysqli_query($con,$query);
+            $con->close();
             
-
         }
     }
 
