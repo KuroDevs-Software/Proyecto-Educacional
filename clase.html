@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="Assets/media/Logo/kiwi-favicon.png" />
+    <title>KIWI | Clase</title>
+
+    <link rel="stylesheet" href="Assets/css/Styles.css">
+    <link rel="stylesheet" href="Assets/materialize/css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<style>
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    /*variables*/
+    :root {
+        --primary-color: #795548;
+        --secondary-color: #8BC34A;
+        --tertiary-color: #DCEDC8;
+        --quaternary-color: #FFF4D0;
+        --quinary-color: #689F38;
+        --white-color: #fff;
+        --black-color: #1D1D1B;
+        --font-light-color: #a8a8b3;
+        --font-dark-color: #737380;
+        --font-bold-color: #4f4f4f;
+        --box_shadow-primary: 0px 6px 50px -20px rgba(0, 0, 0, 0.6);
+        --lowText_font_size: 16px;
+        --text_size_title: 30px;
+        --text_size_title_card: 24px;
+        --text_size_subTitle: 20px;
+    }
+
+    body {
+        background-color: var(--primary-color);
+    }
+
+    .btn-large {
+        width: 100%;
+    }
+
+    .card {
+        border-radius: 10px;
+    }
+
+    .card-panel {
+        border-radius: 10px;
+    }
+
+    .texto_titulo{
+        color: white;
+        font-size: var(--text_size_title);
+
+    }
+
+    .semi-titulo{
+        color: var(--font-light-color);
+        font-size: var(--text_size_subTitle);
+    }
+</style>
+
+<body>
+    <div style="width: 90%; margin: 0 auto;">
+        <div class="row">
+            <div class="col s3">
+                <div class="card-panel z-depth-1" style="background-color: #8BC34A;">
+                    <div class="row valign-wrapper">
+                        <div class="col s3">
+                            <img src="Assets/Media/images/teacher_image.jpg" alt="" class="circle" width="60px"
+                                height="60px">
+                        </div>
+                        <div class="col s9">
+                            <span class="texto_titulo">
+                                Jessica Miller
+                            </span>
+                            <p style="font-size: 20px; color: var(--quinary-color);">Profesor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s3 offset-s6"></div>
+        </div>
+        <div class="row">
+            <div class="col s3">
+                <div class="card" style="background-color: #8BC34A;">
+                    <div class="card-content" style="max-height: 500px; overflow-y: scroll;">
+                        <h5 class="texto_titulo"><i class="material-icons small left">person</i> Alumnos Conectados</h5>
+                        <ul class="collection" style="border-radius: 10px;">
+                            <li class="collection-item avatar">
+                                <img src="Assets/media/images/person1.jpg" alt="" class="circle">
+                                <span class="title">Juan Pérez</span>
+                                <p>11.111.111-1
+                                </p>
+                            </li>
+                            <li class="collection-item avatar">
+                                <img src="Assets/Media/images/person2.jpg" alt="" class="circle">
+                                <span class="title">María Rodríguez</span>
+                                <p>22.222.222-2
+                                </p>
+                            </li>
+                            <li class="collection-item avatar">
+                                <img src="Assets/Media/images/person3.jpg" alt="" class="circle">
+                                <span class="title">Carlos Gómez</span>
+                                <p>33.333.333-3
+                                </p>
+                            </li>
+                            <li class="collection-item avatar">
+                                <img src="Assets/Media/images/person4.jpg" alt="" class="circle">
+                                <span class="title">Ana López</span>
+                                <p>44.444.444-4
+                                </p>
+                            </li>
+                            <li class="collection-item avatar">
+                                <img src="Assets/Media/images/person5.jpg" alt="" class="circle">
+                                <span class="title">Pedro García</span>
+                                <p>55.555.555-5
+                                </p>
+                            </li>
+                            <li class="collection-item avatar">
+                                <img src="Assets/Media/images/person6.jpg" alt="" class="circle">
+                                <span class="title">Andrés Morales</span>
+                                <p>66.666.666-6
+                                </p>
+                            </li>
+                            <li class="collection-item avatar">
+                                <img src="Assets/Media/images/person7.jpg" alt="" class="circle">
+                                <span class="title">Laura Torres</span>
+                                <p>77.777.777-7
+                                </p>
+                            </li>
+                            <li class="collection-item avatar">
+                                <img src="Assets/Media/images/person8.jpg" alt="" class="circle">
+                                <span class="title">Valentina Castro</span>
+                                <p>88.888.888-8
+                                </p>
+                            </li>
+                            <li class="collection-item avatar">
+                                <img src="Assets/Media/images/person9.jpg" alt="" class="circle">
+                                <span class="title">Luis Herrera</span>
+                                <p>99.999.999-9
+                                </p>
+                            </li>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6">2</div>
+            <div class="col s3">
+                <div class="card">
+                    <div class="card-content capitulo">
+                        <span class="card-title" style="color: var(--secondary-color);">Capitulo 1: Mouse</span>
+                        <div class="divider"></div>
+                        <h6 class="card-subtitle" style="color: var(--quinary-color)">1.1 Presición</h6>
+                        <p style="margin-bottom: 2%;">Tener una buena precisión con el mouse es esencial para realizar tareas con mayor eficiencia,
+                            calidad y satisfacción. Nos permite tener un mayor control sobre nuestras acciones, evitando
+                            errores y mejorando nuestros resultados en diferentes ámbitos, tanto profesionales como
+                            personales.</p>
+                            <div class="divider"></div>
+                        <h6 class="card-subtitle" style="color: var(--primary-color); margin-bottom: 5%;">Habilidades que se desarrollarán</h6>
+                        <div class="row">
+                            <div class="col s6">
+                                <img class="responsive-img" src="Assets/media/skills/concentracion.png" alt="Imagen 1">
+                                <p class="semi-titulo">Coordinación</p>
+                            </div>
+                            <div class="col s6">
+                                <img class="responsive-img" src="Assets/Media/skills/motricidad.png" alt="Imagen 2">
+                                <p class="semi-titulo">Destreza</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s6">
+                                <img class="responsive-img" src="Assets/Media/skills/destreza.png" alt="Imagen 1">
+                                <p class="semi-titulo">Concentración</p>
+                            </div>
+                            <div class="col s6">
+                                <img class="responsive-img" src="Assets/Media/skills/velocidad.png" alt="Imagen 2">
+                                <p class="semi-titulo">Velocidad</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s3"><iframe width="400" height="190" src="https://www.youtube.com/embed/kgeoWSjueAE"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe></div>
+            <div class="col s6">2</div>
+            <div class="col s3">
+                <div class="row">
+                    <div class="col s12">
+                        <a class="btn-large waves-effect waves-light green">
+                            <i class="material-icons left">play_arrow</i>
+                            Reproducir</a>
+                    </div>
+                    <div class="col s12">
+                        <a class="btn-large waves-effect waves-light red">
+                            <i class="material-icons left">pause</i>
+                            Pausar</a>
+                    </div>
+                    <div class="col s12">
+                        <a class="btn-large waves-effect waves-light orange">
+                            <i class="material-icons left">first_page</i>
+                            Continuar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Assets/materialize/js/materialize.js"></script>
+</body>
+
+</html>
