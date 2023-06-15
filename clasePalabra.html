@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clase Palabra</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <style>
+      .card-title {
+        color: black;
+      }
+      #instruccion {
+        font-size: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container center">
+      <!-- Imagenes -->
+      <div class="row">
+        <div class="col s4 custom-border">
+          <div class="card blue lighten-5">
+            <div class="card-content white-text">
+              <img src="Assets/media/Clases/Nube.gif" />
+            </div>
+            <div class="card-action">
+              <form action="#">
+                <div class="file-field input-field">
+                  <div class="btn light-green accent-4">
+                    <span>Verificar</span>
+                    <input type="file" />
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col s4 custom-border">
+          <div class="card blue lighten-5">
+            <div class="card-content white-text">
+              <img src="Assets/media/Clases/Perro.gif" />
+            </div>
+            <div class="card-action">
+              <form action="#">
+                <div class="file-field input-field">
+                  <div class="btn purple darken-5">
+                    <span>Verificar</span>
+                    <input type="file" />
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col s4 custom-border">
+          <div class="card blue lighten-5">
+            <div class="card-content white-text">
+              <img src="Assets/media/Clases/Persona.gif" />
+            </div>
+            <div class="card-action">
+              <form action="#">
+                <div class="file-field input-field">
+                  <div class="btn amber darken-2">
+                    <span>Verificar</span>
+                    <input type="file" />
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Palabras Unir -->
+      <div class="row center">
+        <div class="col s12 custom-border">
+          <div class="row">
+            <div class="col s3">
+              <a class="waves-effect waves-light btn lime accent-4">Cerebro</a>
+            </div>
+            <div class="col s3">
+              <a class="waves-effect waves-light btn light-blue darken-4"
+                >Nubes</a
+              >
+            </div>
+            <div class="col s3">
+              <a class="waves-effect waves-light btn yellow lighten-1"
+                >Persona</a
+              >
+            </div>
+            <div class="col s3">
+              <a class="waves-effect waves-light btn amber darken-1">Perro</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s3">
+              <a class="waves-effect waves-light btn orange darken-4">Pajaro</a>
+            </div>
+            <div class="col s3">
+              <a class="waves-effect waves-light btn deep-orange darken-2"
+                >Pincel</a
+              >
+            </div>
+            <div class="col s3">
+              <a class="waves-effect waves-light btn teal accent-4">Guitarra</a>
+            </div>
+            <div class="col s3">
+              <a class="waves-effect waves-light btn cyan accent-3">Peluche</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Texto e Instrucciones de la Clase -->
+      <div class="row">
+        <div class="col s12 custom-border">
+          <p id="instruccion">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis
+            adipisci sapiente earum. Eos quam suscipit eaque nesciunt inventore
+            eligendi facilis sit quidem. Suscipit, fugiat. Voluptates vel
+            deleniti voluptatem molestiae explicabo!
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("input#input_text, textarea#textarea2").characterCounter();
+      });
+    </script>
+  </body>
+</html>
