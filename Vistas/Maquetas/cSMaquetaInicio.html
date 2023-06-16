@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clase: Sumar Circulos</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <style>
+      #instruccion {
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+      }
+      
+      .circle {
+        width: 100px;
+        height: 100px;
+        background-color: #c62828; /* Color del círculo */
+        border-radius: 50%; /* Forma redonda del círculo */
+        position: absolute; /* Posicionamiento absoluto dentro del contenedor */
+        top: 50%; /* Posicionamiento verticalmente en el centro */
+        left: 50%; /* Posicionamiento horizontalmente en el centro */
+        transform: translate(
+          -50%,
+          -50%
+        ); /* Ajuste para centrar correctamente */
+        cursor: pointer; /* Cambia el cursor al pasar sobre el círculo */
+        transition: all 0.3s ease; /* Transición suave para las animaciones */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #444141;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .circle-blue {
+        background-color: #00e5ff; /* Color del círculo azul */
+      }
+
+      .circle-green {
+        background-color: #00e676; /* Color del círculo verde */
+      }
+      .circle-yellow {
+        background-color: #ffff00; /* Color del círculo amarillo */
+      }
+      #container-circulos {
+        width: 800px;
+        height: 360px;
+        border-radius: 10px; /* Bordes redondeados para el contenedor */
+        position: relative; /* Necesario para posicionar los círculos correctamente */
+        padding: 80px; /* Agrega un padding al contenedor */
+      }
+      img {
+        height: 202px;
+      }
+      .counter {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container center">
+      <!-- Titulo de la Clase -->
+      <div class="row">
+        <div class="col s12">
+          <h1 class="center-align"><b>Clase 1:</b> Sumar usando Circulos</h1>
+        </div>
+      </div>
+
+      <!-- Ejercicio de Sumar -->
+      <div class="row">
+        <!-- Circulos -->
+        <div class="col s8 custom-border">
+          <div class="card deep-orange lighten-5">
+            <div id="container-circulos" class="card-content white-text">
+              <div class="circle">0</div>
+              <div class="circle circle-blue">0</div>
+              <div class="circle circle-green">0</div>
+              <div class="circle circle-yellow">0</div>
+            </div>
+          </div>
+        </div>
+        <!-- Marcador -->
+        <div class="col s4 custom-border">
+          <div class="card deep-orange lighten-5">
+            <div class="card-content white-text">
+              <img src="../Assets/media/Clases/MuffinPlaying.gif" />
+            </div>
+            <div
+              class="card-action droppable deep-orange lighten-4"
+              id="primera-droppable"
+            >
+              <p class="counter">Suma: <span id="sum">0</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Texto e Instrucciones de la Clase -->
+      <div class="row deep-orange lighten-5">
+        <div class="col s12 custom-border">
+          <p id="instruccion">
+            Muy bien ahora que has llegado aqui, vamos a aprender a sumar
+            utilizando los circulos que acabas de ver. <br />
+            Debes hacer click en cada circulo y luego a este se le sumara 1 esto
+            debes hacerlo hasta que el marcador llegue a los 5!!
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.all.min.js"></script>
+    <!-- Javascript para los circulos -->
+    <script>
+      // Agregar un evento de clic a todos los círculos
+      var circles = document.querySelectorAll(".circle");
+      var container = document.querySelector("#container-circulos");
+      var containerRect = container.getBoundingClientRect();
+      var maxX = containerRect.width - 50 - 40; // Ancho del contenedor menos el ancho del círculo y el margen
+      var maxY = containerRect.height - 50 - 40; // Alto del contenedor menos el alto del círculo y el margen
+
+      circles.forEach(function (circle) {
+        var number = parseInt(circle.textContent);
+
+        circle.addEventListener("click", function () {
+          number++;
+          circle.textContent = number.toString();
+
+          var randomX = Math.random() * maxX;
+          var randomY = Math.random() * maxY;
+
+          var newX = Math.min(Math.max(randomX, 40), maxX);
+          var newY = Math.min(Math.max(randomY, 40), maxY);
+
+          // Verificar si los nuevos valores se salen del contenedor
+          var circleRect = circle.getBoundingClientRect();
+
+          if (newX + circleRect.width > containerRect.width - 40) {
+            newX = containerRect.width - circleRect.width - 40;
+          }
+
+          if (newY + circleRect.height > containerRect.height - 40) {
+            newY = containerRect.height - circleRect.height - 40;
+          }
+
+          circle.style.top = newY + "px";
+          circle.style.left = newX + "px";
+
+          //Suma de los circulos
+          var suma =
+            parseInt(document.querySelector(".circle").textContent) +
+            parseInt(document.querySelector(".circle-blue").textContent) +
+            parseInt(document.querySelector(".circle-green").textContent) +
+            parseInt(document.querySelector(".circle-yellow").textContent);
+          document.querySelector("#sum").textContent = suma.toString();
+          if (suma >= 5) {
+            /*
+            Swal.fire({
+                title: 'Felicidades!',
+                text: 'Has completado el curso.',
+                imageUrl: 'cat.jpg',
+                imageWidth: 200,
+                imageHeight: 200,
+                imageAlt: 'cat_image',
+                confirmButtonText: 'Vale!'
+            })*/
+            Swal.fire({
+                icon: "success",
+                title: "Muy bien, ahora pasemos al siguiente ejercicio!!"
+                }).then(() => {
+                    window.location.href = "claseSumar2.html";
+                    
+              });
+          } else {
+            Swal.fire(
+              'Excelente!!',
+              'Hasta ahora llevas '+suma+' de 5')
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
