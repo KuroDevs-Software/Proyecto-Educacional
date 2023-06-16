@@ -7,11 +7,9 @@
         <link rel="icon" type="image/jpg"
             href="../Assets/media/Logo/kiwi-favicon.png" />
         <title>KIWI | Capitulo II: Sumar</title>
-
         <link rel="stylesheet" href="../Assets/css/Styles.css">
         <link rel="stylesheet" href="../Assets/materialize/css/materialize.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <style>
         ::-webkit-scrollbar {
@@ -375,74 +373,84 @@
         <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
         <!-- Javascript para los circulos -->
         <script>
-        // Agregar un evento de clic a todos los círculos
-        var circulo = document.querySelectorAll(".circulo");
-        var container = document.querySelector("#container-circulos");
-        var containerRect = container.getBoundingClientRect();
-        var maxX = containerRect.width - 50 - 40; // Ancho del contenedor menos el ancho del círculo y el margen
-        var maxY = containerRect.height - 50 - 40; // Alto del contenedor menos el alto del círculo y el margen
-  
-        circulo.forEach(function (circulo) {
-          var number = parseInt(circulo.textContent);
-  
-          circulo.addEventListener("click", function () {
-            number++;
-            circulo.textContent = number.toString();
-  
-            var randomX = Math.random() * maxX;
-            var randomY = Math.random() * maxY;
-  
-            var newX = Math.min(Math.max(randomX, 40), maxX);
-            var newY = Math.min(Math.max(randomY, 40), maxY);
-  
-            // Verificar si los nuevos valores se salen del contenedor
-            var circleRect = circulo.getBoundingClientRect();
-  
-            if (newX + circleRect.width > containerRect.width - 40) {
-              newX = containerRect.width - circleRect.width - 40;
-            }
-  
-            if (newY + circleRect.height > containerRect.height - 40) {
-              newY = containerRect.height - circleRect.height - 40;
-            }
-  
-            circulo.style.top = newY + "px";
-            circulo.style.left = newX + "px";
-  
-            //Suma de los circulos
-            var suma =
-              parseInt(document.querySelector(".circulo").textContent) +
-              parseInt(document.querySelector(".circulo-blue").textContent) +
-              parseInt(document.querySelector(".circulo-green").textContent) +
-              parseInt(document.querySelector(".circulo-yellow").textContent);
-            document.querySelector("#sum").textContent = suma.toString();
-            if (suma >= 10) {
-                Swal.fire({
-                    title: "Que tal te parecio la actividad?",
-                    //icon: 'question',
-                    input: "range",
-                    imageUrl: "../Assets/media/Clases/MuffinCorrect.gif",
-                    imageWidth: 100,
-                    imageHeight: 100,
-                    imageAlt: "cat_image",
-                    //inputLabel: 'Tu calificacion',
-                    inputAttributes: {
-                        min: 1,
-                        max: 10,
-                        step: 1,
-                    },
-                    inputValue: 5,
-                    confirmButtonText: "Enviar!!",
-                    height: 200,
-                    width: 400,
+            // Agregar un evento de clic a todos los círculos
+            var circulo = document.querySelectorAll(".circulo");
+            var container = document.querySelector("#container-circulos");
+            var containerRect = container.getBoundingClientRect();
+            var maxX = containerRect.width - 50 - 40; // Ancho del contenedor menos el ancho del círculo y el margen
+            var maxY = containerRect.height - 50 - 40; // Alto del contenedor menos el alto del círculo y el margen
+    
+            // Agregar un evento de clic a todos los círculos
+            circulo.forEach(function (circulo) {
+            var number = parseInt(circulo.textContent);
+    
+                // Agregar un evento de clic a todos los círculos
+                circulo.addEventListener("click", function () {
+                    number++;
+                    circulo.textContent = number.toString();
+        
+                    // Obtener un nuevo valor aleatorio para la posición del círculo
+                    var randomX = Math.random() * maxX;
+                    var randomY = Math.random() * maxY;
+                    
+                    // Verificar si los nuevos valores se salen del contenedor
+                    var newX = Math.min(Math.max(randomX, 40), maxX);
+                    var newY = Math.min(Math.max(randomY, 40), maxY);
+        
+                    // Verificar si los nuevos valores se salen del contenedor
+                    var circleRect = circulo.getBoundingClientRect();
+        
+                    // Verificar si los nuevos valores se salen del contenedor
+                    if (newX + circleRect.width > containerRect.width - 40) {
+                    newX = containerRect.width - circleRect.width - 40;
+                    }
+        
+                    // Verificar si los nuevos valores se salen del contenedor
+                    if (newY + circleRect.height > containerRect.height - 40) {
+                    newY = containerRect.height - circleRect.height - 40;
+                    }
+        
+                    // Establecer la nueva posición del círculo
+                    circulo.style.top = newY + "px";
+                    circulo.style.left = newX + "px";
+        
+                    //Suma de los circulos
+                    var suma =
+                    parseInt(document.querySelector(".circulo").textContent) +
+                    parseInt(document.querySelector(".circulo-blue").textContent) +
+                    parseInt(document.querySelector(".circulo-green").textContent) +
+                    parseInt(document.querySelector(".circulo-yellow").textContent);
+                    document.querySelector("#sum").textContent = suma.toString();
+                    if (suma >= 10) {
+                        //alert("Excelente!! Hasta ahora llevas "+suma+" de 10");
+                        Swal.fire({
+                            title: "Que tal te parecio la actividad?",
+                            //icon: 'question',
+                            input: "range",
+                            imageUrl: "../Assets/media/Clases/MuffinCorrect.gif",
+                            imageWidth: 100,
+                            imageHeight: 100,
+                            imageAlt: "cat_image",
+                            //inputLabel: 'Tu calificacion',
+                            inputAttributes: {
+                                min: 1,
+                                max: 10,
+                                step: 1,
+                            },
+                            inputValue: 5,
+                            confirmButtonText: "Enviar!!",
+                            height: 200,
+                            width: 400,
+                        });
+                    } else {
+                        //alert("Hasta ahora llevas "+suma+" de 10");
+                        Swal.fire(
+                            'Excelente!!',
+                            'Hasta ahora llevas '+suma+' de 10'
+                        )
+                    }
                 });
-            } else {
-              Swal.fire(
-                'Excelente!!',
-                'Hasta ahora llevas '+suma+' de 10')
-            }
-          });
-        });
+            });
         </script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.all.min.js"></script>
     </body>

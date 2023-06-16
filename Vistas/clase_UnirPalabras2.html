@@ -4,13 +4,11 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/jpg"
-            href="../Assets/media/Logo/kiwi-favicon.png" />
+        <link rel="icon" type="image/jpg" href="../Assets/media/Logo/kiwi-favicon.png"/>
         <title>KIWI | Capitulo I: Unir</title>
         <link rel="stylesheet" href="../Assets/css/Styles.css">
         <link rel="stylesheet" href="../Assets/materialize/css/materialize.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <style>
         ::-webkit-scrollbar {
@@ -443,37 +441,40 @@
         <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
         <script>
             $(document).ready(function () {
-              $(".draggable-button").draggable({
-                revert: true,
-                zIndex: 999,
+               
+              $(".draggable-button").draggable({ //Selecciona todos los elementos con la clase draggable-button
+                revert: true, //Regresa el elemento a su lugar original
+                zIndex: 999, //Establece el indice z del elemento
               });
       
+              //Selecciona todos los elementos con la clase droppable
               $(".droppable").droppable({
                 accept: ".draggable-button",
                 drop: function (event, ui) {
                   var targetId = $(this).attr("id");
                   var buttonText = ui.draggable.text();
                   $(this).html(
+                    //Agrega el texto del boton al elemento droppable
                     '<span class="droppable-text">' + buttonText + "</span>"
                   );
       
                   $(this).append(
-                    '<input id="palabra" type="hidden" name="' +
-                      targetId +
-                      '" value="' +
-                      buttonText +
-                      '">'
+                    //Agrega un input con el nombre del elemento droppable y el texto del boton
+                    '<input id="palabra" type="hidden" name="' + targetId +'" value="' +buttonText +'">'
                   );
       
+                  //Elimina el elemento draggable
                   var primeraText = $("#primera-droppable").text().trim();
                   var segundaText = $("#segunda-droppable").text().trim();
                   var terceraText = $("#tercera-droppable").text().trim();
       
                   if (
+                    //Si los elementos droppables tienen el texto correcto
                     primeraText === "Lavandose los Dientes" &&
                     segundaText === "Durmiendo en su Cama" &&
                     terceraText === "Estudiando con su Amigo"
                   ) {
+                    //SweetAlert2 para mostrar el mensaje de que la actividad se completo correctamente
                     Swal.fire({
                       title: "Que tal te parecio la actividad?",
                       input: "range",
@@ -492,10 +493,12 @@
                       width: 400,
                     });
                   } else if (
+                    //Si los elementos droppables no tienen el texto correcto
                     primeraText !== "" &&
                     segundaText !== "" &&
                     terceraText !== ""
                   ) {
+                    //SweetAlert2 para mostrar el mensaje de que la actividad se completo incorrectamente
                     Swal.fire({
                       title: "Ups! No has introducido los elementos correctos",
                       text: "Quieres reiniciar la actividad?",
@@ -505,14 +508,16 @@
                       cancelButtonColor: "#d33",
                       confirmButtonText: "Si, quiero volver a intentarlo",
                     }).then((result) => {
+                        //Si el usuario quiere volver a intentarlo
                       if (result.isConfirmed) {
                         Swal.fire({
                           title: "Perfecto!",
                           text: "Suerte en tu proximo intento",
                           icon: "success",
                         }).then(() => {
-                          $(".droppable").empty();
-                          $(".droppable input").val("");
+                            //Reinicia la actividad
+                            $(".droppable").empty();
+                            $(".droppable input").val("");
                         });
                       }
                     });
