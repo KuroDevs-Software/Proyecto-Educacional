@@ -52,18 +52,19 @@
 
   <body>
     <div class="container center">
-      <!-- Titulo de la Clase -->
-      <div class="row">
-        <div class="col s12">
-          <h1 class="center-align"><b>Clase 1:</b> Unir Palabras</h1>
+        <!-- Titulo de la Clase -->
+        <div class="row">
+            <div class="col s12">
+                <h1 class="center-align"><b>Clase 2:</b> Unir Palabras</h1>
+            </div>
         </div>
-      </div>
+
       <!-- Imagenes -->
       <div class="row">
         <div class="col s4 custom-border">
           <div class="card deep-orange lighten-5">
             <div class="card-content white-text">
-              <img src="Assets/media/Clases/MuffinPC.gif" />
+              <img src="Assets/media/Clases/MuffinClean.gif" />
             </div>
             <div
               class="card-action droppable deep-orange lighten-4"
@@ -74,7 +75,7 @@
         <div class="col s4 custom-border">
           <div class="card deep-orange lighten-5">
             <div class="card-content white-text">
-              <img src="Assets/media/Clases/MuffinRead.gif" />
+              <img src="Assets/media/Clases/MuffinSleep.gif" />
             </div>
             <div
               class="card-action droppable deep-orange lighten-4"
@@ -85,7 +86,7 @@
         <div class="col s4 custom-border">
           <div class="card deep-orange lighten-5">
             <div class="card-content white-text">
-              <img src="Assets/media/Clases/MuffinMusic.gif" />
+              <img src="Assets/media/Clases/MuffinStudy.gif" />
             </div>
             <div
               class="card-action droppable deep-orange lighten-4"
@@ -109,7 +110,7 @@
             class="waves-effect waves-light btn light-blue darken-4 draggable-button"
             data-target="primera-droppable"
           >
-            Saltando en la Cuerda
+            Lavandose los Dientes
           </a>
         </div>
         <div class="col s3">
@@ -149,7 +150,7 @@
             class="waves-effect waves-light btn purple lighten-2 draggable-button"
             data-target="arbol-droppable"
           >
-            Andando en Bicicleta
+            Estudiando con su Amigo
           </a>
         </div>
         <div class="col s3">
@@ -205,16 +206,26 @@
             var terceraText = $("#tercera-droppable").text().trim();
 
             if (
-              primeraText === "Usando una Computadora" &&
-              segundaText === "Leyendo un Libro" &&
-              terceraText === "Tocando Musica"
+              primeraText === "Lavandose los Dientes" &&
+              segundaText === "Durmiendo en su Cama" &&
+              terceraText === "Estudiando con su Amigo"
             ) {
               Swal.fire({
-                icon: "success",
-                title: "Muy bien, ahora pasemos al siguiente ejercicio!!"
-                }).then(() => {
-                    window.location.href = "clasePalabra2.html";
-                    
+                title: "Que tal te parecio la actividad?",
+                input: "range",
+                imageUrl: "Assets/media/Clases/MuffinCorrect.gif",
+                imageWidth: 200,
+                imageHeight: 200,
+                imageAlt: "cat_image",
+                inputAttributes: {
+                  min: 1,
+                  max: 10,
+                  step: 1,
+                },
+                inputValue: 5,
+                confirmButtonText: "Enviar",
+                height: 200,
+                width: 400,
               });
             } else if (
               primeraText !== "" &&
