@@ -68,6 +68,18 @@
         /* Estilo del Juego */
         #imgEjercicio {
             height: 220px;
+            vertical-align: center;
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #card-imagen{
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         #instruccion {
@@ -85,6 +97,7 @@
             border: 2px dashed #ccc;
             margin-bottom: 10px;
             padding: 10px;
+            text-align: center;
         }
 
         .btn {
@@ -101,7 +114,6 @@
         .droppable-text {
             margin-top: auto;
             margin-bottom: auto;
-            text-align: justify;
             color: #b1c2a3;
             font-size: 24px;
             font-weight: bold;
@@ -118,14 +130,22 @@
         .btn-floating{
             background-color: #b1c2a3;
         }
+
+        #modal.modal {
+            background-color: transparent;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
     </style>
     <body>
+        
         <!-- Contenido de la Pagina -->
         <div style="width: 90%; margin: 0 auto;">
             <!-- Area Superior de la Pagina -->
             <div class="row">
                 <!-- Informacion del Profesor -->
-                <div class="col s3">
+                <div class="col s12 m12 l3">
                     <div class="card-panel z-depth-1"
                         style="background-color: #E4E8EB;">
                         <div class="row valign-wrapper">
@@ -145,23 +165,37 @@
                     </div>
                 </div>
                 <!-- Titulo de la Clase -->
-                <div class="col s7">
+                <div class="col s12 m12 l6">
                     <h1 class="center-align"><b>Capitulo I:</b> Unir Palabras</h1>
                 </div>
                 <!-- Botones de Navegacion -->
-                <div class="col s2">
+                <div class="col s12 m12 l3">
                     <div class="card-panel z-depth-1" style="background-color: #E4E8EB">
-                        <button class="btn-floating btn-large waves-effect waves-light"><i class="fas fa-question"></i></button>
-                        <button class="btn-floating btn-large waves-effect waves-light"><i class="fas fa-volume-up"></i></button>
+                        <button id="modalButton" class="btn-floating btn-large waves-effect waves-light">
+                            <i class="fas fa-question"></i>
+                          </button>                        
+                          <button id="muteButton" class="btn-floating btn-large waves-effect waves-light" onclick="toggleMute()">
+                            <i id="volumeIcon" class="fas fa-volume-up"></i>
+                          </button>
                         <button class="btn-floating btn-large waves-effect waves-light"><i class="fas fa-rotate-right"></i></button>
                         <button class="btn-floating btn-large waves-effect waves-light"><i class="fas fa-sign-out-alt"></i></button>
+                    </div>
+                    <!-- Modal de Pregunta-->
+                    <div id="modal" class="modal bottom-sheet center">
+                        <div class="modal-content">
+                            <h3 class="header" style="color: rgb(238, 231, 231);">Estas perdido en el ejercicio?</h3>
+                            <img src="../Assets/media/Clases/MuffinScary.gif" alt="" height="200px">
+                        </div>
+                        <div class="modal-footer purple darken-4">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat white-text">Aceptar</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- Area Media de la Pagina-->
             <div class="row">
                 <!-- Alumnos de la Clase -->
-                <div class="col s3">
+                <div class="col s12 m12 l3">
                     <div class="card" style="background-color: #E4E8EB">
                         <div class="card-content"
                             style="max-height: 500px; overflow-y: scroll;">
@@ -236,20 +270,20 @@
                     </div>
                 </div>
                 <!-- Ejercicio de Palabras -->
-                <div class="col s6">
+                <div class="col s12 m12 l6">
                     <!-- Imagenes -->
                     <div class="row">
-                        <div class="col s4 custom-border">
+                        <div class="col s12 m12 l4 custom-border">
                             <div id="card-ejercicio" class="card">
-                                <div class="card-content white-text">
+                                <div id="card-imagen" class="card-content white-text">
                                     <img id="imgEjercicio" src="../Assets/media/Clases/MuffinPC.gif"/>
                                 </div>
                                 <div class="card-action droppable" id="primera-droppable"></div>
                             </div>
                         </div>
-                        <div class="col s4 custom-border">
+                        <div class="col s12 m12 l4 custom-border">
                             <div id="card-ejercicio" class="card">
-                                <div class="card-content white-text">
+                                <div id="card-imagen" class="card-content white-text">
                                     <img id="imgEjercicio"
                                         src="../Assets/media/Clases/MuffinRead.gif" />
                                 </div>
@@ -258,9 +292,9 @@
                                     id="segunda-droppable"></div>
                             </div>
                         </div>
-                        <div class="col s4 custom-border">
+                        <div class="col s12 m12 l4 custom-border">
                             <div id="card-ejercicio" class="card">
-                                <div class="card-content white-text">
+                                <div id="card-imagen" class="card-content white-text">
                                     <img id="imgEjercicio"
                                         src="../Assets/media/Clases/MuffinMusic.gif" />
                                 </div>
@@ -331,7 +365,7 @@
                     </div>
                 </div>
                 <!-- Contenido y Descripcion de la Clase -->
-                <div class="col s3">
+                <div class="col s12 m12 l3">
                     <div class="card">
                         <div class="card-content capitulo">
                             <span class="card-title"
@@ -390,16 +424,14 @@
             <!-- Area inferior de la Pagina -->
             <div class="row">
                 <!-- Video Lenguaje de Senias -->
-                <div class="col s3">
-                    <iframe width="400" height="190"
-                        src="https://www.youtube.com/embed/kgeoWSjueAE"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
+                <div class="col s12 m12 l3">
+                    <video width="400" height="225" autoplay controls>
+                        <source src="../Video/videoBilingue.mp4" type="video/mp4">
+                        Tu navegador no admite el elemento de video.
+                    </video>
                 </div>
                 <!-- Descripcion de la Clase a Impartir y Habilidades -->
-                <div class="col s6">
+                <div class="col s12 m12 l6">
                     <p id="instruccion">
                         Muy bien ahora que has llegado aqui, debes de unir
                         las palabras con
@@ -411,7 +443,7 @@
                     </p>
                 </div>
                 <!-- Audio de la Clase (Controles) -->
-                <div class="col s3">
+                <div class="col s12 m12 l3">
                     <div class="row">
                         <div class="col s12">
                             <a
@@ -440,11 +472,15 @@
             </div>
         </div>
         
-        <!-- Scripts de la Pagina -->
+        <!-- Importaciones Js -->
         <script src="../Assets/materialize/js/materialize.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.all.min.js"></script>
+        <script src="https://kit.fontawesome.com/770f2e87c7.js" crossorigin="anonymous"></script>
+
+        <!-- Script del Ejercicio -->
         <script>
             
             $(document).ready(function () {
@@ -519,7 +555,55 @@
                 });
             });
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.all.min.js"></script>
-        <script src="https://kit.fontawesome.com/770f2e87c7.js" crossorigin="anonymous"></script>
+        <!-- Script de los controles de Navegacion -->
+        <script>
+            function toggleMute() {
+              var muteButton = document.getElementById("muteButton");
+              var volumeIcon = document.getElementById("volumeIcon");
+        
+              if (muteButton.classList.contains("muted")) {
+                muteButton.classList.remove("muted");
+                volumeIcon.classList.remove("fa-volume-off");
+                volumeIcon.classList.add("fa-volume-up");
+                unmutePage();
+              } else {
+                muteButton.classList.add("muted");
+                volumeIcon.classList.remove("fa-volume-up");
+                volumeIcon.classList.add("fa-volume-off");
+                mutePage();
+              }
+            }
+        
+            function mutePage() {
+              // Lógica para silenciar la página aquí
+              // Por ejemplo, puedes usar el siguiente código para silenciar todos los elementos de audio y video en la página:
+              var mediaElements = document.querySelectorAll("audio, video");
+              for (var i = 0; i < mediaElements.length; i++) {
+                mediaElements[i].muted = true;
+              }
+            }
+        
+            function unmutePage() {
+              // Lógica para activar el sonido en la página aquí
+              // Por ejemplo, puedes usar el siguiente código para activar el sonido en todos los elementos de audio y video en la página:
+              var mediaElements = document.querySelectorAll("audio, video");
+              for (var i = 0; i < mediaElements.length; i++) {
+                mediaElements[i].muted = false;
+              }
+            }
+        </script>
+        <!-- Script del Modal -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              var modalButton = document.getElementById("modalButton");
+              var modal = document.getElementById("modal");
+              var modalInstance = M.Modal.init(modal);
+        
+              modalButton.addEventListener('click', function() {
+                modalInstance.open();
+              });
+            });
+        </script>
+        
     </body>
 </html>
