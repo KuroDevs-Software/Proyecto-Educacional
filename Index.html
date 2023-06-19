@@ -57,7 +57,7 @@ $con->close();
     
     <header id="header">
         
-        <select id='voiceSelect'></select>
+        <select id='voiceSelect' style=" Display: none"></select>
         <div class="container_header">
             <div class="logo">
                 <a href="#home"><img src="Assets/media/Logo/logo_kiwi_nav.png" alt="A&L Logo"></a>
@@ -71,7 +71,7 @@ $con->close();
                         <li><a href="#client">Alianzas</a></li>
                         <li><a href="#work">Planes</a></li>
                         <li><a href="#contact">Contacto</a></li>
-                        <li><a href="clase.html" class="btn-small">Unirse a Clase</a></li>
+                        <li><a href="clase.html" class="btn-small">Ingresar</a></li>
                     </ul>
                 </nav>
 
@@ -193,7 +193,8 @@ $con->close();
                     <!-- Unidad de Obra -->
                     <div class="card_work">
                         <div class="cover_card">
-                            <img src="Assets\media\Jobs\membresia1.png" alt=""> <!--<?php echo $rowObras['foto'] ?> "ubicado en la ruta src"-->
+                            <img src="Assets\media\Jobs\membresia1.png" alt="">
+                            <!--<?php echo $rowObras['foto'] ?> "ubicado en la ruta src"-->
                         </div>
                         <h2>Caracteristicas<!--<?php  echo $rowObras['nombre_trabajo'] ?>--></h2>
                         <p>Acceso completo a todos los cursos<!--<?php  echo $rowObras['detalles'] ?>--></p>
@@ -208,22 +209,8 @@ $con->close();
                     </div>
                     <div class="card_work">
                         <div class="cover_card">
-                            <img src="Assets\media\Jobs\membresia2.png" alt=""> <!--<?php echo $rowObras['foto'] ?> "ubicado en la ruta src"-->
-                        </div>
-                        <h2>Caracteristicas<!--<?php  echo $rowObras['nombre_trabajo'] ?>--></h2>
-                        <p>Acceso limitado de los cursos<!--<?php  echo $rowObras['detalles'] ?>--></p>
-                        <p>Recursos de aprendizaje adicionales<!--<?php  echo $rowObras['detalles'] ?>--></p>
-                        <p>Ajuste de horarios personalizado<!--<?php  echo $rowObras['detalles'] ?>--></p>
-                        <p>Soporte tecnico para consultas<!--<?php  echo $rowObras['detalles'] ?>--></p>
-                        <hr>
-                        <div class="footer_card">
-                            <h3 class="user_name">Comprar<!--<?php 1 echo $rowObras['para_quien'] ?>--></h3>
-                            <i>$10 Mensual<!--<?php  echo $fecha_obra ?>--></i>
-                        </div>
-                    </div>
-                    <div class="card_work">
-                        <div class="cover_card">
-                            <img src="Assets\media\Jobs\membresia3.png" alt=""> <!--<?php echo $rowObras['foto'] ?> "ubicado en la ruta src"-->
+                            <img src="Assets\media\Jobs\membresia3.png" alt="">
+                            <!--<?php echo $rowObras['foto'] ?> "ubicado en la ruta src"-->
                         </div>
                         <h2>Caracteristicas<!--<?php  echo $rowObras['nombre_trabajo'] ?>--></h2>
                         <p>Acceso a cursos especificos<!--<?php  echo $rowObras['detalles'] ?>--></p>
@@ -234,6 +221,22 @@ $con->close();
                         <div class="footer_card">
                             <h3 class="user_name">Comprar<!--<?php 1 echo $rowObras['para_quien'] ?>--></h3>
                             <i>$20 Mensual<!--<?php  echo $fecha_obra ?>--></i>
+                        </div>
+                    </div>
+                    <div class="card_work">
+                        <div class="cover_card">
+                            <img src="Assets\media\Jobs\membresia2.png" alt="">
+                            <!--<?php echo $rowObras['foto'] ?> "ubicado en la ruta src"-->
+                        </div>
+                        <h2>Caracteristicas<!--<?php  echo $rowObras['nombre_trabajo'] ?>--></h2>
+                        <p>Acceso limitado de los cursos<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <p>Recursos de aprendizaje adicionales<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <p>Ajuste de horarios personalizado<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <p>Soporte tecnico para consultas<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <hr>
+                        <div class="footer_card">
+                            <h3 class="user_name">Comprar<!--<?php 1 echo $rowObras['para_quien'] ?>--></h3>
+                            <i>$10 Mensual<!--<?php  echo $fecha_obra ?>--></i>
                         </div>
                     </div>
                     <!--
