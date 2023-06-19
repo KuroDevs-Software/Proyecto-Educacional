@@ -38,13 +38,16 @@
 
 <body>
     <!-- Mensaje de Completado -->
-    <div id="card-mensaje" class="card">
-        <div class="card-content white-text">
-            <span class="card-title">Felicidades has completado el Ejercicio!</span>
-            <p>Has demostrado un gran esfuerzo y dedicación al superar este desafío. Tu perseverancia y determinación son admirables. Continúa así, siempre buscando aprender y crecer.</p>
-        </div>
-        <div class="card-action center">
-            <button class="waves-effect waves-light btn" onclick="redireccionar()">Ir a la página principal</button>
+    <div class="col s6 m6 l6">
+        <div id="card-mensaje" class="card">
+            <div class="card-content white-text">
+                <span class="card-title">Felicidades has completado el Ejercicio!</span>
+                <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action center">
+                <a href="#!" class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>Volver al Inicio</a>
+            </div>
         </div>
     </div>
 
@@ -55,13 +58,5 @@
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.all.min.js"></script>
     <script src="https://kit.fontawesome.com/770f2e87c7.js" crossorigin="anonymous"></script>
-
-    <!-- Script Redireccion -->
-    <script>
-        function redireccionar(){
-            window.top.location.href="../Index.html";
-        }
-    </script>
-
 </body>
 </html>
