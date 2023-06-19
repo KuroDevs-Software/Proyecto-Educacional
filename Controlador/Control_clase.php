@@ -1,13 +1,14 @@
 <?php
 
 $flag = $_GET['flag'];
-$descripcionA = "";
-$descripcionB = "";
+$descripcion;
 
 if ($flag == "a") {
-    header("Location: ../Vistas/clase_UnirPalabras.html?descripcion=$descripcionA");
+    $descripcion = "";
+    header('Location: ../Vistas/clase_UnirPalabras.html');
 } else if ($flag == "b") {
-    header("Location: ../Vistas/clase_SumarCirculos.html?descripcion=$descripcionB");
+    $descripcion = "";
+    header('Location: ../Vistas/clase_SumarCirculos.html');
 } else {
     header('Location: ../Vistas/');
 }
