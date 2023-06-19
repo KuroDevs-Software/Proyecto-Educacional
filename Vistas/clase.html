@@ -73,13 +73,15 @@
             <div class="row">
                 <div class="col-1">
                     <!--Iframe donde se reproducira el ejercicio-->
-                    <iframe src="../Vistas/Ejercicios/clase_UnirPalabras.html" frameborder="0" class="clase"></iframe>
+                    <iframe src="../Vistas/Ejercicios/clase_UnirPalabras.html" frameborder="0" class="clase"
+                        id="miIframe"></iframe>
                     <!--Seccion inferior-->
                     <div class="downside">
                         <!--Texto explicativo-->
                         <div class="lesson_text">
                             <h2 class="lesson_title">Nivel 1</h2>
-                            <p class="lesson_description">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                            <p class="lesson_description" id="descripcion">Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit.
                                 Cupiditate consectetur quibusdam unde ea porro quos sint voluptate quisquam dolores
                                 veritatis assumenda omnis libero, blanditiis ullam cum consequuntur placeat voluptates
                                 dolore? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos doloremque
@@ -107,35 +109,77 @@
                     <hr class="division_explain">
                     <ul class="image-list">
                         <li>
-                          <img src="../Assets/media/skills/skill.png" alt="Imagen 1">
-                          <div class="image-text">
-                            <p>Habilidad</p>
-                          </div>
+                            <img src="../Assets/media/skills/skill.png" alt="Imagen 1">
+                            <div class="image-text">
+                                <p>Habilidad</p>
+                            </div>
                         </li>
                         <li>
-                          <img src="../Assets/media/skills/skill.png" alt="Imagen 2">
-                          <div class="image-text">
-                            <p>Habilidad</p>
-                          </div>
+                            <img src="../Assets/media/skills/skill.png" alt="Imagen 2">
+                            <div class="image-text">
+                                <p>Habilidad</p>
+                            </div>
                         </li>
                         <li>
-                          <img src="../Assets/media/skills/skill.png" alt="Imagen 3">
-                          <div class="image-text">
-                            <p>Habilidad</p>
-                          </div>
+                            <img src="../Assets/media/skills/skill.png" alt="Imagen 3">
+                            <div class="image-text">
+                                <p>Habilidad</p>
+                            </div>
                         </li>
                         <li>
-                          <img src="../Assets/media/skills/skill.png" alt="Imagen 4">
-                          <div class="image-text">
-                            <p>Habilidad</p>
-                          </div>
+                            <img src="../Assets/media/skills/skill.png" alt="Imagen 4">
+                            <div class="image-text">
+                                <p>Habilidad</p>
+                            </div>
                         </li>
-                      </ul>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
     </div>
+    <script>
+        // Esperar a que el iframe se cargue completamente
+        var iframe = document.getElementById('miIframe');
+        iframe.addEventListener('load', function () {
+            // Obtener la URL del iframe
+
+            // Enviar la URL del iframe a la página principal
+            window.parent.postMessage(iframeUrl, '*');
+
+        });
+
+        // Controlador del evento 'message'
+        window.addEventListener('message', function (event) {
+            // Verificar el origen del mensaje recibido
+            // Obtener la URL del iframe desde el mensaje
+            var iframeUrl = event.data;
+
+            // Modificar datos en la página principal según la URL del iframe
+            if (iframeUrl.endsWith('clase_UnirPalabras.html')) {
+                var elementoExterno = document.getElementById('descripcion');
+                elementoExterno.innerHTML = 'hola';
+            }
+            else if (iframeUrl.endsWith('clase_UnirPalabras2.html')) {
+                var elementoExterno = document.getElementById('descripcion');
+                elementoExterno.innerHTML = 'hola perra';
+            } else if (iframeUrl.endsWith('clase_SumarCirculos.html')) {
+                var elementoExterno = document.getElementById('descripcion');
+                elementoExterno.innerHTML = 'hola perra circular';
+            } else if (iframeUrl.endsWith('clase_SumarCirculos2.html')) {
+                var elementoExterno = document.getElementById('descripcion');
+                elementoExterno.innerHTML = 'hola perra realmente circular';
+            } else {
+                var elementoExterno = document.getElementById('descripcion');
+                elementoExterno.innerHTML = 'sin ruta';
+            }
+
+            // Mostrar la URL del iframe en la consola
+            console.log('URL del iframe:', iframeUrl);
+        }
+        );
+    </script>
+
 </body>
 
 </html>
