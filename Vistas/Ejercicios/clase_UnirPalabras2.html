@@ -307,7 +307,9 @@
                       confirmButtonText: "Enviar",
                       height: 200,
                       width: 400,
-                    });
+                    }).then(() => {
+                                window.location.href = "../ventana_Final.html";  
+                            });;
                   } else if (
                     //Si los elementos droppables no tienen el texto correcto
                     primeraText !== "" &&
