@@ -85,7 +85,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
 
+      utterThis.addEventListener('end', function() {
+        removeHighlight();
+      });
+
       speechSynthesis.speak(utterThis);
+    }
+
+    function removeHighlight() {
+      textElements.forEach(function(element) {
+        element.innerHTML = element.textContent;
+      });
     }
 
     function getSelectionText() {
@@ -132,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
     start();
   })();
 });
+
 
 
 
