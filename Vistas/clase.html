@@ -50,7 +50,7 @@
             <div class="top_side">
                 <!--Titulo-->
                 <div class="tittle">
-                    <h1 class="title">Capitulo 1 <span class="sub_title" id = "titulo">1.1 Hardware</span></h1>
+                    <h1 class="title">Capitulo 1 <span class="sub_title" id="titulo">1.1 Hardware</span></h1>
                 </div>
                 <!--Barra de Herramientas-->
                 <div class="toolBar">
@@ -72,14 +72,39 @@
             <!--Seccion Intermedia-->
             <div class="row">
                 <div class="col-1">
+                    <iframe src="../Vistas/Ejercicios/clase_UnirPalabras.html" frameborder="0" class="clase"
+                        id="miIframe"></iframe>
                     <!--Iframe donde se reproducira el ejercicio-->
-                    <iframe src="../Vistas/Ejercicios/clase_UnirPalabras.html" frameborder="0" class="clase" id="miIframe"></iframe>
+                    <script>
+                        // Obtener la cadena de consulta de la URL actual
+                        var queryString = window.location.search;
+
+                        // Crear un objeto URLSearchParams a partir de la cadena de consulta
+                        var params = new URLSearchParams(queryString);
+
+                        // Obtener el valor de un parámetro específico
+                        var flag = params.get('flag');
+
+                        console.log(flag); // valor1
+
+                        // Obtener una referencia al elemento iframe
+                        var miIframe = document.getElementById('miIframe');
+
+                        if (flag === "a") {
+                            miIframe.src = "../Vistas/Ejercicios/clase_UnirPalabras.html";
+                        } else if (flag === "b") {
+                            miIframe.src = "../Vistas/Ejercicios/clase_SumarCirculos.html";
+                        } else {
+                            miIframe.src = "../Vistas/Ejercicios/clase_UnirPalabras.html";
+                        }
+                    </script>
                     <!--Seccion inferior-->
                     <div class="downside">
                         <!--Texto explicativo-->
                         <div class="lesson_text">
-                            <h2 class="lesson_title" id = "nivel">Nivel 1</h2>
-                            <p class="lesson_description" id = "descripcion">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                            <h2 class="lesson_title" id="nivel">Nivel 1</h2>
+                            <p class="lesson_description" id="descripcion">Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit.
                                 Cupiditate consectetur quibusdam unde ea porro quos sint voluptate quisquam dolores
                                 veritatis assumenda omnis libero, blanditiis ullam cum consequuntur placeat voluptates
                                 dolore? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos doloremque
@@ -95,13 +120,15 @@
                 </div>
                 <!--Seccion de explicacion del capitulo-->
                 <div class="col-2">
-                    <h2 class="title_explain"><i class="material-icons">history_edu</i> Capitulo: Aprendiendo y Jugando con los Fundamentos</h2>
+                    <h2 class="title_explain"><i class="material-icons">history_edu</i> Capitulo: Aprendiendo y Jugando
+                        con los Fundamentos</h2>
                     <hr class="division_explain">
                     <p class="lesson_description">
-                        En este emocionante capítulo, nuestros personajes se sumergen en una variedad de actividades 
+                        En este emocionante capítulo, nuestros personajes se sumergen en una variedad de actividades
                         educativas y divertidas. Comienzan resolviendo ejercicios de suma para mejorar sus habilidades
-                        matemáticas. Luego, se desafían a unir palabras, fortaleciendo su vocabulario y expresión oral. 
-                        Después, exploran la pronunciación y la articulación al decir en voz alta frases y nombres de objetos. 
+                        matemáticas. Luego, se desafían a unir palabras, fortaleciendo su vocabulario y expresión oral.
+                        Después, exploran la pronunciación y la articulación al decir en voz alta frases y nombres de
+                        objetos.
                     </p>
                     <h3 class="subTitle_explain"><i class="material-icons">psychology</i>Habilidades Desarrolladas</h3>
                     <hr class="division_explain">

@@ -35,7 +35,8 @@
             <div class="top_side">
                 <!--Titulo-->
                 <div class="tittle">
-                    <h1 class="title">KIWI <span class="material-symbols-outlined dot">fiber_manual_record</span><span class="sub_title"> Gestion Profesor</span></h1>
+                    <h1 class="title">KIWI <span class="material-symbols-outlined dot">fiber_manual_record</span><span
+                            class="sub_title"> Gestion Profesor</span></h1>
                 </div>
                 <!--Boton acceso clase-->
                 <div class="button">
@@ -48,12 +49,14 @@
                 <div class="col-1">
                     <div class="list-container">
                         <div class="list-item">
-                            <button class="list-title class-button" onclick="loadIframe('Vistas/info_eje1.html')">Primero A</button>
+                            <button class="list-title class-button" id="btn_a"
+                                onclick="loadIframe('Vistas/info_eje1.html')">Primero A</button>
                             <p class="list-exercices">Cap: 1.1</p>
                         </div>
                         <hr>
                         <div class="list-item">
-                            <button class="list-title class-button" onclick="loadIframe('Vistas/info_eje2.html')">Segundo B</button>
+                            <button class="list-title class-button" id="btn_b"
+                                onclick="loadIframe('Vistas/info_eje2.html')">Segundo B</button>
                             <p class="list-exercices">Cap: 1.2</p>
                         </div>
                     </div>
@@ -70,18 +73,37 @@
 
     <!-- Script para el Iframe -->
     <script>
-
         // Funcion para cargar el iframe en base al btn seleccionado
         function loadIframe(src) {
             document.getElementById("iframe-container").src = src;
-            enableButton();
         }
 
         // Funcion para habilitar el boton de comenzar clase
-        function enableButton() {
+        function enableButton(btn) {
             var button = document.querySelector('.button');
-            button.innerHTML = '<a href="Vistas/Clase.html"><h3>Comenzar Clase</h3></a>';
+            if (btn === 'a') {
+                console.log('Boton 1 Pulsado');
+                button.innerHTML = '<a href="Vistas/Clase.html?flag=a"><h3>Comenzar Clase</h3></a>';
+            } else if (btn === 'b') {
+                console.log('Boton 2 Pulsado');
+                button.innerHTML = '<a href="Vistas/Clase.html?flag=b"><h3>Comenzar Clase</h3></a>';
+            }
         }
+
+        // Obtén una referencia al botón por su id
+        var button1 = document.getElementById('btn_a');
+        var button2 = document.getElementById('btn_b');
+
+        // Agrega un escuchador de eventos clic al botón
+        button1.addEventListener('click', function () {
+            // La función se ejecutará cuando se haga clic en el botón
+            enableButton('a');
+        });
+
+        button2.addEventListener('click', function () {
+            // La función se ejecutará cuando se haga clic en el botón
+            enableButton('b');
+        });
     </script>
 </body>
 
