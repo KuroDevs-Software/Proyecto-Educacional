@@ -12,6 +12,11 @@
     font-family: 'Rubik', sans-serif;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 html,
 body {
     scroll-behavior: smooth !important;
@@ -161,26 +166,25 @@ nav ul li .option_sideBar:hover {
     transition: all 0.3s ease-in-out;
 }
 
-/*Comportamientos boton activo
-.button{
+.button_active {
     background-color: var(--tertiary-color);
     color: var(--primary-color);
     border: 3px solid transparent;
     border-radius: 50px;
-    font-size: var(--text_size_button);
-    font-weight: 600;
-    padding: 1% 1%;
+    font-size: 18.3px;
+    font-weight: 800;
+    padding: 1% 2.5%;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
 
-.button:hover{
+.button_active:hover{
     background-color: var(--primary-color);
     color: var(--tertiary-color);
     border: solid var(--tertiary-color);
     transform: scale(1.1);
 }
-*/
+
 
 /*Seccion Intermedia*/
 .row {
@@ -211,6 +215,9 @@ nav ul li .option_sideBar:hover {
     padding: 4% 1%;
     cursor: pointer;
     border-radius: 2px;
+    outline: none !important;
+    border: none !important;
+    background-color: var(--tertiary-color-color);
 }
 
 .list-title {
@@ -250,8 +257,9 @@ hr {
 
 .explain {
     border-radius: 10px;
+    -webkit-border-radius: 20px;
     height: 86.7vh;
     max-height: 86.7vh;
     width: 100%;
-    border: 7px solid var(--tertiary-color);
+    border: 10px solid var(--tertiary-color);
 }

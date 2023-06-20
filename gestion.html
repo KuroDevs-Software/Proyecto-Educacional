@@ -25,7 +25,8 @@
                 <li><span class="material-symbols-outlined option_sideBar" id="active">home</span></li>
                 <li><span class="material-symbols-outlined option_sideBar">history</span></li>
                 <li><span class="material-symbols-outlined option_sideBar">settings</span></li>
-                <li><span class="material-symbols-outlined option_sideBar" id="out">logout</span></li>
+                <li><a href="Index.html"><span class="material-symbols-outlined option_sideBar"
+                            id="out">logout</span></a></li>
             </ul>
         </nav>
 
@@ -48,22 +49,21 @@
                 <!--Seccion lista clases-->
                 <div class="col-1">
                     <div class="list-container">
-                        <div class="list-item">
-                            <button class="list-title class-button" id="btn_a"
-                                onclick="loadIframe('Vistas/info_eje1.html')">Primero A</button>
-                            <p class="list-exercices">Cap: 1.1</p>
-                        </div>
+                        <button class="list-item" id="btn_a" onclick="loadIframe('Vistas/info_eje1.html')">
+                            <h2 class="list-title">Primero <span class="list-subTitle">A</span></h2>
+                            <p class="list-exercices">Cap.1: Unir Palabras</p>
+                        </button>
                         <hr>
-                        <div class="list-item">
-                            <button class="list-title class-button" id="btn_b"
-                                onclick="loadIframe('Vistas/info_eje2.html')">Segundo B</button>
-                            <p class="list-exercices">Cap: 1.2</p>
-                        </div>
+                        <button class="list-item" id="btn_b" onclick="loadIframe('Vistas/info_eje2.html')">
+                            <h2 class="list-title">Segundo <span class="list-subTitle">B</span></h2>
+                            <p class="list-exercices">Cap.1: Sumar Usando Circulos</p>
+                        </button>
                     </div>
                 </div>
                 <!--Seccion Iframe-->
                 <div class="col-2">
-                    <iframe id="iframe-container" src="" frameborder="0" class="explain"></iframe>
+                    <iframe id="iframe-container" src="Vistas/sample_iframe.html" frameborder="0"
+                        class="explain"></iframe>
                 </div>
             </div>
         </div>
@@ -80,15 +80,25 @@
 
         // Funcion para habilitar el boton de comenzar clase
         function enableButton(btn) {
-            var button = document.querySelector('.button');
+            var buttonContainer = document.querySelector('.button');
+            var newButton = document.createElement('div');
+            newButton.classList.add('button_active');
+            var link = document.createElement('a');
+            var linkText = document.createTextNode('Comenzar Clase');
+            link.appendChild(linkText);
+
             if (btn === 'a') {
                 console.log('Boton 1 Pulsado');
-                button.innerHTML = '<a href="Vistas/Clase.html?flag=a"><h3>Comenzar Clase</h3></a>';
+                link.href = 'Vistas/Clase.html?flag=a';
             } else if (btn === 'b') {
                 console.log('Boton 2 Pulsado');
-                button.innerHTML = '<a href="Vistas/Clase.html?flag=b"><h3>Comenzar Clase</h3></a>';
+                link.href = 'Vistas/Clase.html?flag=b';
             }
+
+            newButton.appendChild(link);
+            buttonContainer.replaceWith(newButton);
         }
+
 
         // Obtén una referencia al botón por su id
         var button1 = document.getElementById('btn_a');
