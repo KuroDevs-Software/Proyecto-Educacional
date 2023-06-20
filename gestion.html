@@ -48,25 +48,41 @@
                 <div class="col-1">
                     <div class="list-container">
                         <div class="list-item">
-                          <h2 class="list-title">Capitulo <span class="list-subTitle"> Descripcion</span></h2>
-                          <p class="list-exercices">Ejercicios</p>
+                            <button class="list-title class-button" onclick="loadIframe('Vistas/info_eje1.html')">Primero A</button>
+                            <p class="list-exercices">Cap: 1.1</p>
                         </div>
                         <hr>
                         <div class="list-item">
-                          <h2 class="list-title">Capitulo <span class="list-subTitle"> Descripcion</span></h2>
-                          <p class="list-exercices">Ejercicios</p>
+                            <button class="list-title class-button" onclick="loadIframe('Vistas/info_eje2.html')">Segundo B</button>
+                            <p class="list-exercices">Cap: 1.2</p>
                         </div>
-                      </div>
+                    </div>
                 </div>
                 <!--Seccion Iframe-->
                 <div class="col-2">
-                    <iframe src="Vistas/sample_iframe.html" frameborder="0" class="explain"></iframe>
+                    <iframe id="iframe-container" src="" frameborder="0" class="explain"></iframe>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="Assets/js/script_gestion.js"></script>
+
+    <!-- Script para el Iframe -->
+    <script>
+
+        // Funcion para cargar el iframe en base al btn seleccionado
+        function loadIframe(src) {
+            document.getElementById("iframe-container").src = src;
+            enableButton();
+        }
+
+        // Funcion para habilitar el boton de comenzar clase
+        function enableButton() {
+            var button = document.querySelector('.button');
+            button.innerHTML = '<a href="Vistas/Clase.html"><h3>Comenzar Clase</h3></a>';
+        }
+    </script>
 </body>
 
 </html>
